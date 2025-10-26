@@ -15,6 +15,6 @@ public class RacingGameControllerV1 implements RacingGameController {
     @Override
     public GameResponseDto getGameResult(GameRequestDto gameRequestDto) {
 
-        return racingGameService.executionGame(gameRequestDto.getCars(), gameRequestDto.gameCount());
+        return racingGameService.executionGame(gameRequestDto);
     }
 }

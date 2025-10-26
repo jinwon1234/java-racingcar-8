@@ -53,6 +53,15 @@ class ApplicationTest extends NsTest {
                 .hasMessage(INVALID_CAR_NAME);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi,jun,jun", "jinwo,jun,jinwo"})
+    @DisplayName("자동차 이름이 1자 이상 5자 이하가 아니면 실패")
+    void carNamesDuplicateFail(String carNames) {
+        assertThatThrownBy(()-> runException(carNames, "5"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(DUPLICATE_CAR_NAME);
+    }
+
 
     @ParameterizedTest
     @ValueSource(strings = {"123안213", "12313녕", "하123세", "요", "0", "-1"})
