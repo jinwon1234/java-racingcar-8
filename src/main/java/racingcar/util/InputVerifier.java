@@ -5,6 +5,10 @@ import static racingcar.message.ErrorMessage.INVALID_INPUT;
 
 public final class InputVerifier {
 
+    private InputVerifier() {
+        throw new AssertionError("유틸 클래스는 생성할 수 없습니다.");
+    }
+
     public static String validateInput(String input) {
         if (input == null || input.isBlank()) throw new IllegalArgumentException(INVALID_INPUT);
         return input;
