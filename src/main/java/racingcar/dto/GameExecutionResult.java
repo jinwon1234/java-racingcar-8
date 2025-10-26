@@ -1,6 +1,7 @@
 package racingcar.dto;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public record GameExecutionResult(
         int gameNumber,
@@ -10,12 +11,8 @@ public record GameExecutionResult(
     @Override
     public String toString() {
 
-        StringBuilder result = new StringBuilder();
-
-        for (CarPosition carPosition : carPositions) {
-            result.append(carPosition.toString() + "\n");
-        }
-
-        return result.toString();
+       return carPositions.stream()
+               .map(CarPosition::toString)
+               .collect(Collectors.joining("\n"));
     }
 }

@@ -26,7 +26,7 @@ class RacingGameServiceV1Test {
         // then
         assertSoftly(softly -> {
             softly.assertThat(gameResponseDto.winnerNames()).containsAnyOf("pobi", "woni", "jun");
-            softly.assertThat(gameResponseDto.results()).hasSize(5);
+            softly.assertThat(gameResponseDto.executionResults()).hasSize(5);
         });
     }
 }
