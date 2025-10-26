@@ -55,8 +55,8 @@ class ApplicationTest extends NsTest {
 
 
     @ParameterizedTest
-    @ValueSource(strings = {"123안213", "12313녕", "하123세", "요"})
-    @DisplayName("숫자가 아닌 형태로 게임 횟수가 입력되면 실패")
+    @ValueSource(strings = {"123안213", "12313녕", "하123세", "요", "0", "-1"})
+    @DisplayName("숫자가 아닌 형태로 게임 횟수가 입력되거나 0이하라면 실패")
     void carNamesSizeFail(String gameCount) {
         assertThatThrownBy(()-> runException("pobi,woni", gameCount))
                 .isInstanceOf(IllegalArgumentException.class)

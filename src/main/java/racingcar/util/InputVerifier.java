@@ -12,7 +12,9 @@ public final class InputVerifier {
 
     public static int safeParseInt(String input) {
         try {
-            return Integer.parseInt(input);
+            int gameCount = Integer.parseInt(input);
+            if (gameCount < 1) throw new IllegalArgumentException(INVALID_GAME_COUNT);
+            return gameCount;
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException(INVALID_GAME_COUNT);
         }

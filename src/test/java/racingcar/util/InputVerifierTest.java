@@ -48,8 +48,8 @@ class InputVerifierTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"5안녕", "하세요10", "1040이진원입니다.3123"})
-    @DisplayName("숫자 형태의 입력값이 안들어오면 IllegalArgumentException 반환")
+    @ValueSource(strings = {"5안녕", "하세요10", "1040이진원입니다.3123, -1, 0"})
+    @DisplayName("숫자 형태의 입력값이 안들어오거나 0이하라면 IllegalArgumentException 반환")
     void safeParseIntFail(String input) {
 
         // when & then
